@@ -1,0 +1,34 @@
+html {
+		background-color: #ddd;
+	}
+#messagearea {
+	background-color: #eee;
+	margin: 0px;
+	border-style: none;
+	width: 400px;
+}
+#textbox {
+	float: bottom;
+	width: 400px;
+	height: 60px;
+}
+#loginarea {
+	float: right;
+	margin-right: 50px;
+}
+#loginarea > button, #loginarea > input {
+	border-radius: 5px;
+}
+#loginarea > button {
+	background-color: #659cef;
+	width: 85px;
+}
+#loginarea > button:focus {
+	outline-style: none;
+}
+#textbox {
+	border-radius: 5px;
+}
+#textbox:focus {
+	outline: none;
+}

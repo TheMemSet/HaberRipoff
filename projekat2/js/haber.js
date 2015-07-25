@@ -45,7 +45,7 @@
 						latestMessageId = response[i].id;
 					
 					$("#messagearea").append("<p>" + response[i].text + "</p>");
-					msgs.push(new Message(response[i].text, response[i].id));
+					//msgs.push(new Message(response[i].text, response[i].id));
 				}
 			});
 		}
@@ -64,11 +64,12 @@
 					}
 					if (response.text == "INVALID_LOGIN") {
 						alert("Please enter a valid username and password.");
+						$("#usernamebox, #passwordbox").val("");
 						return;
 					}
 					else if (response.text == "LOGIN_SUCCESSFUL") {
 						token = response.token;
-						$("#usernamebox, #paswordbox").val("");
+						$("#usernamebox, #passwordbox").val("");
 						$("#loginarea").children().toggle(1000);
 					} 
 				});
@@ -78,6 +79,10 @@
 			$.post("php/logout.php", {token: token}, function(response) {
 				if (response == "LOGOUT_UNSUCCESSFUL") 
 					alert("Could not log out.");
+				else {
+					$("#loginarea").children().toggle(1000);
+					$("#usernamebox, #passwordbox").val("");
+				}
 			});
 		});
 

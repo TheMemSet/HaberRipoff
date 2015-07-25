@@ -10,6 +10,6 @@ $query = $db->query("SELECT * FROM messages ORDER BY id DESC LIMIT $count");
 $messages = array();
 
 while ($row = $query->fetchObject()) 
-	$messages[] = array("text" => $row->message, "id" => $row->id);
+	$messages[] = array("text" => $row->message, "id" => $row->id, "user" => $row->user, "timestamp" => $row->timestamp);
 
 echo json_encode(array_reverse($messages));
